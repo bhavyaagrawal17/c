@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void printSum(int *arr, int size) {
+    int sum = 0;
+    for(int i = 0; i < size; i++) {
+        sum += *(arr + i); // pointer arithmetic to access elements
+    }
+    printf("Sum of array elements: %d\n", sum);
+}
+
+int main() {
+    int size;
+    printf("Enter the number of elements: ");
+    scanf("%d", &size);
+
+    int arr[size]; // Variable Length Array (VLA)
+
+    printf("Enter %d elements:\n", size);
+    for(int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]); // input from user
+    }
+
+    printSum(arr, size); // pass array to function
+
+    return 0;
+}
